@@ -45,7 +45,7 @@ def hello(request, name):
             for ingr, num in i.items():
                 context[ingr] = num
 
-    return render(request, 'calculator/index.html', context)
+    return render(request, 'calculator/index.html', {'content_list': context})
 
 def ingr_calc(request, plate):
 

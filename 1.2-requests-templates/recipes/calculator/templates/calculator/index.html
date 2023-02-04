@@ -5,8 +5,10 @@
     <title>Рецепты</title>
 </head>
 <body>
-{% for ingredient, amount in context.items %}
-    <p>{{ ingredient }}: {{ amount }}</p>
+{% for list in content_list.values %}
+    {% for ingredient, amount in list.items %}
+        <p>{{ ingredient }}: {{ amount }}</p>
+    {% endfor %}
 {% empty %}
     <p>Такого рецепта не знаю :(</p>
 {% endfor %}
