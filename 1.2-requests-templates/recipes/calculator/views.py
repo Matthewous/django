@@ -34,8 +34,8 @@ def hello(request, name):
     msg = f'введите блюдо, {name}'
     return HttpResponse (msg)
 
-def ingr_calc(request):
-    plate = request.GET('plate')
+def ingr_calc(request, plate):
+
     context = {}
     plate_list = {}
     

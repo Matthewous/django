@@ -22,7 +22,7 @@ from django.urls import path
 
 urlpatterns = [
     path('', home_view, name='home'),
-    path('recipes/', ingr_calc),
-    path('hello/', hello)
+    path('recipes/<plate>/', ingr_calc),
+    path('hello/<name>/', hello)
     # здесь зарегистрируйте вашу view-функцию
 ]
