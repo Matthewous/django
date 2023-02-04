@@ -42,20 +42,21 @@ def hello(request, name):
 
 def ingr_calc(request, plate):
 
-    context = {}
-    plate_list = {}
+    # context = {}
+    # plate_list = {}
     
-    for p, i in DATA.items():
-        if p == plate:
-            for ingr, num in i.items():
-                plate_list[ingr] = num
-            context[p] = plate_list
-    if context == a:
-        msg = 'y'
-    else:
-        print(context)
-        print('___')
-        print(a)
-        msg = 'n'
+    # for p, i in DATA.items():
+    #     if p == plate:
+    #         for ingr, num in i.items():
+    #             plate_list[ingr] = num
+    #         context[p] = plate_list
+    # if context == a:
+    #     msg = 'y'
+    # else:
+    #     print(context)
+    #     print('___')
+    #     print(a)
+    #     msg = 'n'
+    msg = f'{plate}'
     # return render(request, 'calculator/index.html', context)
     HttpResponse(msg)
