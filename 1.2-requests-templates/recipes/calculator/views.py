@@ -44,8 +44,10 @@ def hello(request, name):
         if p == name:
             for ingr, num in i.items():
                 context[ingr] = num
+    
+    context = 'я все выведу правильно'
 
-    return render(request, 'calculator/index.html', {'content_list': context})
+    return render(request, 'calculator/index.html', context)
 
 def ingr_calc(request, plate):
 
