@@ -5,7 +5,8 @@
     <title>Рецепты</title>
 </head>
 <body>
-    <p>попытка не пытка</p>
-    <p>{{ context }}</p>
+{% for ingridient, amount in ingr_list %}
+    <p>{{ ingridient }}:{{ amount }}</p>
+{% endfor %}
 </body>
 </html>

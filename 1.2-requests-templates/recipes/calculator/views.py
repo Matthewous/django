@@ -38,16 +38,14 @@ def home_view(request):
 def hello(request, name):
     # name = request.GET('name')
     # msg = f'введите блюдо, {name}'
-    new_dict = {}
+    ingr_list = {}
     
     for p, i in DATA.items():
         if p == name:
             for ingr, num in i.items():
-                new_dict[ingr] = num
-    
-    context = {new_dict}
+                ingr_list[ingr] = num
 
-    return render(request, 'calculator/index.html', context)
+    return render(request, 'calculator/index.html', context=ingr_list)
 
 def ingr_calc(request, plate):
 
@@ -69,3 +67,7 @@ def ingr_calc(request, plate):
     msg = f'{plate}'
     # return render(request, 'calculator/index.html', context)
     HttpResponse(msg)
+
+def test(request):
+    data = {"header": "Hello Django", "message": "Welcome to Python"}
+    return render(request, "calculator/test.html", context=data)
