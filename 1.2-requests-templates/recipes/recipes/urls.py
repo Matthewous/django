@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from calculator.views import DATA, ingr_calc
+from calculator.views import DATA, ingr_calc, home_view
 
 from django.urls import path
 
 urlpatterns = [
+    path('', home_view, name='home'),
     path('recipes/<plate>/', ingr_calc)
     # здесь зарегистрируйте вашу view-функцию
 ]
