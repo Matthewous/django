@@ -40,4 +40,5 @@ def ingr_calc(request):
                 plate_list[ingr] = num
             context[p] = plate_list
 
-    return render(request, 'calculator/index.html', context)
+    # return render(request, 'calculator/index.html', context)
+    HttpResponse(context)
