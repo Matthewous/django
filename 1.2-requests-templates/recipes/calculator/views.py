@@ -46,14 +46,7 @@ def hello(request, name):
             for ingr, num in i.items():
                 plate_list[ingr] = num
             context[p] = plate_list
-    if context == a:
-        msg = 'y'
-    else:
-        print(context)
-        print('___')
-        print(a)
-        msg = 'n'
-    return HttpResponse (msg)
+    return HttpResponse (context)
 
 def ingr_calc(request, plate):
 
