@@ -21,6 +21,12 @@ DATA = {
     # можете добавить свои рецепты ;)
 }
 
+a = {'omlet': {
+        'яйца, шт': 2,
+        'молоко, л': 0.1,
+        'соль, ч.л.': 0.5,
+    }
+}
 
 # Напишите ваш обработчик. Используйте DATA как источник данных
 # Результат - render(request, 'calculator/index.html', context)
@@ -44,6 +50,12 @@ def ingr_calc(request, plate):
             for ingr, num in i.items():
                 plate_list[ingr] = num
             context[p] = plate_list
-
+    if context == a:
+        msg = 'y'
+    else:
+        print(context)
+        print('___')
+        print(a)
+        msg = 'n'
     # return render(request, 'calculator/index.html', context)
-    HttpResponse(context)
+    HttpResponse(msg)
