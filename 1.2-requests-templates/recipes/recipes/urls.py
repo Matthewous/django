@@ -21,6 +21,6 @@ from calculator.views import DATA, ingr_calc
 from django.urls import path
 
 urlpatterns = [
-    path('omlet/', ingr_calc)
+    path('recipes/<plate>/', ingr_calc)
     # здесь зарегистрируйте вашу view-функцию
 ]
