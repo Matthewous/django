@@ -19,12 +19,19 @@ DATA = {
     # можете добавить свои рецепты ;)
 }
 
+
 # Напишите ваш обработчик. Используйте DATA как источник данных
 # Результат - render(request, 'calculator/index.html', context)
 # В качестве контекста должен быть передан словарь с рецептом:
-# context = {
-#   'recipe': {
-#     'ингредиент1': количество1,
-#     'ингредиент2': количество2,
-#   }
-# }
+def ingr_calc(request, plate):
+
+    context = {}
+    plate_list = {}
+    
+    for p, i in DATA.items():
+        if p == plate:
+            for ingr, num in i.items():
+                plate_list[ingr] = num
+            context[p] = plate_list
+
+    return render(request, 'calculator/index.html', context)
