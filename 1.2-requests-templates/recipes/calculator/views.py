@@ -29,8 +29,8 @@ def home_view(request):
     return HttpResponse (msg)
 
 
-def ingr_calc(request, plate):
-
+def ingr_calc(request):
+    plate = request.GET('plate')
     context = {}
     plate_list = {}
     
