@@ -25,7 +25,8 @@ DATA = {
 # Результат - render(request, 'calculator/index.html', context)
 # В качестве контекста должен быть передан словарь с рецептом:
 def home_view(request):
-    msg = 'введите блюдо'
+    name = request.GET('name')
+    msg = f'введите блюдо, {name}'
     return HttpResponse (msg)
 
 
