@@ -43,7 +43,7 @@ def hello(request, name):
     for p, i in DATA.items():
         if p == name:
             for ingr, num in i.items():
-                context[ingr] = num
+                new_dict[ingr] = num
     
     context = {new_dict}
 
