@@ -29,8 +29,8 @@ def home_view(request):
     msg = 'hello'
     return HttpResponse (msg)
 
-def hello(request):
-    name = request.GET('name')
+def hello(request, name):
+    # name = request.GET('name')
     msg = f'введите блюдо, {name}'
     return HttpResponse (msg)
 
