@@ -37,7 +37,22 @@ def home_view(request):
 
 def hello(request, name):
     # name = request.GET('name')
-    msg = f'введите блюдо, {name}'
+    # msg = f'введите блюдо, {name}'
+    context = {}
+    plate_list = {}
+    
+    for p, i in DATA.items():
+        if p == name:
+            for ingr, num in i.items():
+                plate_list[ingr] = num
+            context[p] = plate_list
+    if context == a:
+        msg = 'y'
+    else:
+        print(context)
+        print('___')
+        print(a)
+        msg = 'n'
     return HttpResponse (msg)
 
 def ingr_calc(request, plate):
