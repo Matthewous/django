@@ -36,38 +36,12 @@ def home_view(request):
     return HttpResponse (msg)
 
 def hello(request, name):
-    # name = request.GET('name')
-    # msg = f'введите блюдо, {name}'
-    ingr_list = {}
     
+    ingr_list = {}    
     for p, i in DATA.items():
         if p == name:
             for ingr, num in i.items():
                 ingr_list[ingr] = num
 
-    return render(request, 'calculator/index.html', context=ingr_list)
+    return render(request, 'calculator/index.html', context={'recipe':ingr_list})
 
-def ingr_calc(request, plate):
-
-    # context = {}
-    # plate_list = {}
-    
-    # for p, i in DATA.items():
-    #     if p == plate:
-    #         for ingr, num in i.items():
-    #             plate_list[ingr] = num
-    #         context[p] = plate_list
-    # if context == a:
-    #     msg = 'y'
-    # else:
-    #     print(context)
-    #     print('___')
-    #     print(a)
-    #     msg = 'n'
-    msg = f'{plate}'
-    # return render(request, 'calculator/index.html', context)
-    HttpResponse(msg)
-
-def test(request):
-    data = {"header": "Hello Django", "message": "Welcome to Python"}
-    return render(request, "calculator/test.html", context=data)

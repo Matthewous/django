@@ -17,14 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 from calculator import views
-from calculator.views import DATA, ingr_calc, home_view, hello, test
+from calculator.views import DATA
 
 from django.urls import path
 
 urlpatterns = [
-    path('', home_view, name='home'),
-    path('recipes/<plate>/', views.ingr_calc),
+    path('', views.home_view, name='home'),
     path('hello/<name>/', views.hello, name='hello'),
-    path('test/', views.test)
     # здесь зарегистрируйте вашу view-функцию
 ]
