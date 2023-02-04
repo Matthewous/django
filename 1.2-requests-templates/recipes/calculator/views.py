@@ -38,14 +38,14 @@ def home_view(request):
 def hello(request, name):
     # name = request.GET('name')
     # msg = f'введите блюдо, {name}'
-    context = {}
+    new_dict = {}
     
     for p, i in DATA.items():
         if p == name:
             for ingr, num in i.items():
                 context[ingr] = num
     
-    context = 'я все выведу правильно'
+    context = {new_dict}
 
     return render(request, 'calculator/index.html', context)
 
