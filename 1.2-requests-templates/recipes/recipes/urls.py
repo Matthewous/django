@@ -23,6 +23,6 @@ from django.urls import path
 
 urlpatterns = [
     path('', views.home_view, name='home'),
-    path('hello/<name>/', views.hello, name='hello'),
+    path('recipes/<plate>/', views.recipes, name='recipes'),
     # здесь зарегистрируйте вашу view-функцию
 ]

@@ -21,27 +21,19 @@ DATA = {
     # можете добавить свои рецепты ;)
 }
 
-a = {'omlet': {
-        'яйца, шт': 2,
-        'молоко, л': 0.1,
-        'соль, ч.л.': 0.5,
-    }
-}
 
-# Напишите ваш обработчик. Используйте DATA как источник данных
-# Результат - render(request, 'calculator/index.html', context)
-# В качестве контекста должен быть передан словарь с рецептом:
 def home_view(request):
     msg = 'hello'
     return HttpResponse (msg)
 
-def hello(request, name):
-    
+def recipes(request, plate):
+
+    servings = int(request.GET.get('servings', 1))
     ingr_list = {}    
     for p, i in DATA.items():
-        if p == name:
+        if p == plate:
             for ingr, num in i.items():
-                ingr_list[ingr] = num
+                ingr_list[ingr] = num * servings
 
     return render(request, 'calculator/index.html', context={'recipe':ingr_list})
 
