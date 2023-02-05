@@ -1,13 +1,16 @@
-import csv
+class Phone(models.Model):
+    name = models.CharField(max_length=50)
+    price = models.FloatField()
+    image = models.TextField()
+    release_date = models.DateField()
+    lte_exists = models.BooleanField()
+    slug = models.SlugField(max_length=30)
 
-from django.core.management.base import BaseCommand
-from phones.models import Phone
-from django.http import HttpResponse
 
+@admin.register(Phone)
+class PhoneAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'image', 'price', 'release_date', 'lte_exists', 'slug']
 
-class Command(BaseCommand):
-    def add_arguments(self, parser):
-        pass
 
     def handle(self, *args, **options):
         with open('phones.csv', 'r') as file:
@@ -29,4 +32,3 @@ class Command(BaseCommand):
                 )
                 data.save()
             return HttpResponse ('Данные импортированы')
-                
