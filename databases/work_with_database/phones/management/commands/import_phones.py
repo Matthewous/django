@@ -13,19 +13,15 @@ class Command(BaseCommand):
         with open('phones.csv', 'r') as file:
             phones = list(csv.DictReader(file, delimiter=';'))
 
-        string_num = 0
-        for phone in phones:
-            if string_num == 0:
-                string_num += 1
-            else:
+            for phone in phones:
                 data = Phone(
-                    id = phone[0],
-                    name=phone[1],
-                    price=phone[2],
-                    image= phone[3],
-                    image = phone[4],
-                    release_date = phone[5],
-                    lte_exists = phone[6]
+                    id = phone['id'],
+                    name = phone['name'],
+                    price = phone['price'],
+                    image = phone['image'],
+                    release_date = phone['release_date'],
+                    lte_exists = phone['lte_exists'],
+                    slug = phone['name'].replace(' ','_')
                 )
                 data.save()
-        return HttpResponse ('Данные импортированы')
+        pass
